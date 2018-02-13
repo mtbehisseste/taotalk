@@ -1,16 +1,3 @@
-// var apisrc = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDEz3IOSna2hZYzb18cNrtaumEx05W9NSY&libraries=places&callback=initMap"
-// loadScript(apisrc);
-
-// // load api and callback initMap
-// function loadScript(apisrc) {
-//   var oHead = document.getElementsByTagName("HEAD")[0];
-//   var oScript = document.createElement('script');
-//   oScript.type = 'text/javascript';
-//   oScript.src = apisrc;
-//   oHead.appendChild(oScript);
-//   oScript.onload = initMap();
-// }
-
 function initMap() {
   var taoyuan = {
     lat: 25,
@@ -24,6 +11,42 @@ function initMap() {
 
   // calling searcbox autocomplete
   Autocomplete(map);
+
+  // load xml to javascript
+  downloadUrl('markers.php', function (data) {
+    var infoWindow = new google.maps.InfoWindow();
+    var xml = data.responseXML;
+    var markers = xml.documentElement.getElementsByTagName('marker');
+
+    Array.prototype.forEach.call(markers, function (markerElem) {
+      var address = markerElem.getAttribute('address');
+      var point = new google.maps.LatLng(
+        parseFloat(markerElem.getAttribute('lat')),
+        parseFloat(markerElem.getAttribute('lng'))
+      );
+
+      var infowincontent = document.createElement('div');
+
+      var text = document.createElement('text');
+      text.textContent = address
+      infowincontent.appendChild(text);
+      infowincontent.appendChild(document.createElement('br'));
+
+      var pointshow = document.createElement('text');
+      pointshow.textContent = point
+      infowincontent.appendChild(pointshow);
+
+      var marker = new google.maps.Marker({
+        map: map,
+        position: point,
+      });
+
+      marker.addListener('click', function () {
+        infoWindow.setContent(infowincontent);
+        infoWindow.open(map, marker);
+      });
+    })
+  });
 }
 
 initMap();
