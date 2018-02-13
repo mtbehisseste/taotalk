@@ -41,9 +41,13 @@ function initMap() {
         position: point,
       });
 
-      marker.addListener('click', function () {
+      marker.addListener('mouseover', function () {
         infoWindow.setContent(infowincontent);
         infoWindow.open(map, marker);
+      });
+
+      marker.addListener('mouseout', function() {
+        infoWindow.close();
       });
     })
   });
