@@ -49,6 +49,10 @@ function initMap() {
       marker.addListener('mouseout', function() {
         infoWindow.close();
       });
+
+      marker.addListener('click', function () { 
+        marker.setMap(null);
+      })
     })
   });
 }
