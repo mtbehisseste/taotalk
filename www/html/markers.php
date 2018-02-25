@@ -33,9 +33,11 @@ while($row = mysqli_fetch_assoc($result)) {
     $node = $dom->createElement("marker");
     $newnode = $parnode->appendChild($node);
 
+    $newnode->setAttribute("category", $row['CATEGORY']);
     $newnode->setAttribute("address", $row['ADDRESS']);
     $newnode->setAttribute("lat", $row['LAT']);
     $newnode->setAttribute("lng", $row['LNG']);
+    $newnode->setAttribute("status", $row['STATUS']);
 }
 
 $dom->save("pinned.xml");
