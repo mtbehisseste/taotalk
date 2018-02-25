@@ -78,9 +78,9 @@ function initMap() {
         infoWindow.close();
       });
 
-      marker.addListener('click', function () {
-        marker.setMap(null);
-      })
+      // marker.addListener('click', function () {
+      //   marker.setMap(null);
+      // });
     })
   });
 }
