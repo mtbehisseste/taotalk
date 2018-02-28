@@ -50,18 +50,18 @@ function initMap() {
       infowincontent.appendChild(statustext);
 
       // mark different status markers
-      switch (status) { 
+      switch (status) {
         case "結案":
           var iconimage = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
           break;
         case "滿意度調查中":
-          var iconimage = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";  
+          var iconimage = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
           break;
         case "處理中":
-          var iconimage = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";  
-          break; 
+          var iconimage = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+          break;
       }
- 
+
       // set markers and events
       var marker = new google.maps.Marker({
         map: map,
@@ -81,10 +81,6 @@ function initMap() {
       // marker.addListener('click', function () {
       //   marker.setMap(null);
       // });
-
-///////////////////////////////////////////////////////////
-      //////TODO: search box add click set null and remove marker
-      //////////////////////////
     })
   });
 }

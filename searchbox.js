@@ -54,6 +54,16 @@ function Autocomplete(map) {
         bounds.extend(place.geometry.location);
       }
     });
+
+    // click to reset map zoom and search box
+    markers.forEach(function (marker) {
+      marker.addListener('click', function () {
+        marker.setMap(null);
+        map.setZoom(12);
+        input.value = input.defaultValue;
+      })
+    });
+
     map.fitBounds(bounds);
   });
 }
