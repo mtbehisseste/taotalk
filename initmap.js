@@ -1,11 +1,11 @@
 function initMap() {
-  var taoyuan = {
-    lat: 25,
-    lng: 121.30
+  var center = {
+    lat: 24.997431,
+    lng: 121.221654
   };
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: taoyuan,
+    center: center,
     zoom: 12
   });
 
