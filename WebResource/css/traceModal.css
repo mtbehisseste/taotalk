@@ -1,0 +1,229 @@
+/****************************************************************************
+ *
+ * Copyright (c) 2017 ESound Tech. All Rights Reserved.
+ *
+ * This SOURCE CODE FILE, which has been provided by ESound as part
+ * of a ESound product for use ONLY by licensed users of the product,
+ * includes CONFIDENTIAL and PROPRIETARY information of ESound.
+ *
+ * USE OF THIS SOFTWARE IS GOVERNED BY THE TERMS AND CONDITIONS
+ * OF THE LICENSE STATEMENT AND LIMITED WARRANTY FURNISHED WITH
+ * THE PRODUCT.
+ *
+ * IN PARTICULAR, YOU WILL INDEMNIFY AND HOLD ESOUND, ITS RELATED
+ * COMPANIES AND ITS SUPPLIERS, HARMLESS FROM AND AGAINST ANY CLAIMS
+ * OR LIABILITIES ARISING OUT OF THE USE, REPRODUCTION, OR DISTRIBUTION
+ * OF YOUR PROGRAMS, INCLUDING ANY CLAIMS OR LIABILITIES ARISING OUT OF
+ * OR RESULTING FROM THE USE, MODIFICATION, OR DISTRIBUTION OF PROGRAMS
+ * OR FILES CREATED FROM, BASED ON, AND/OR DERIVED FROM THIS SOURCE
+ * CODE FILE.
+ *
+ *
+ *     File name:       traceModal.css
+ *
+ *     History:
+ *     Date               Author            Comments
+ *     -----------------------------------------------------------------------
+ *     JAN 23, 2017       Vergil           Initial Release
+ *****************************************************************************/
+
+
+a.tm-a {
+  text-decoration: none;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  display:inline-block;
+  float:right;
+}
+a.tm-a:hover {
+
+
+}
+
+.tm-form {
+  background: #fff;
+  padding: 30px 40px;
+  margin: 4px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  max-width: 700px;;
+}
+
+.tm-tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+.tm-tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tm-tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px 0;
+  background: #e8e8e8;
+  color: #7e7d82;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+.tm-tab-group li a:hover {
+  background: #ffc44f; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffc44f 0%, #ff9f53 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffc44f 0%,#ff9f53 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffc44f 0%,#ff9f53 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc44f', endColorstr='#ff9f53',GradientType=0 ); /* IE6-9 */  
+
+  color: #ffffff;
+}
+.tm-tab-group .active a {
+  background: #54b5c3; /* Old browsers */
+  background: -moz-linear-gradient(left, #208296 0%, #54b5c3 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #208296 0%,#54b5c3 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #208296 0%,#54b5c3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#208296', endColorstr='#54b5c3',GradientType=1 ); /* IE6-9 */
+
+  color: #ffffff;
+}
+
+.tm-tab-content > div:last-child {
+  display: none;
+}
+
+h1.tm-tab-title {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0 0 40px;
+}
+
+label.tm-label {
+  position: absolute;
+  -webkit-transform: translateY(6px);
+  transform: translateY(8px);
+  left: 13px;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+  font-size: 19px;
+  top: 2px;
+  color: #7e7d82;
+}
+label.tm-label .req {
+  margin: 2px;
+  color: red;
+}
+
+label.tm-label.active {
+  transform:translateY(-20px);
+  -ms-transform:translateY(-20px); /* Internet Explorer */
+  -moz-transform:translateY(-20px); /* Firefox */
+  -webkit-transform:translateY(-20px); /* Safari 和 Chrome */
+  -o-transform:translateY(-20px); /* Opera */
+  left: 2px;
+  font-size: 14px;
+}
+label.tm-label.active .req {
+  opacity: 0;
+}
+
+label.tm-label.highlight {
+  color: #7E7D82;
+}
+
+input.tm-input, textarea.tm-textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;;;
+  background-image: none;
+  border: 1px solid #a0b3b0;
+  color: #000000;
+  border-radius: 0;
+  -webkit-transition: border-color .25s ease, box-shadow .25s ease;
+  transition: border-color .25s ease, box-shadow .25s ease;
+  background-color: #f4f5f9;;
+}
+input.tm-input:focus, textarea:focus {
+  outline: 0;
+  border-color: #00b9d3;
+}
+
+textarea.tm-textarea {
+  border: 2px solid #a0b3b0;
+  resize: vertical;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+.top-row > div:last-child {
+  margin: 0;
+}
+
+.button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #00b9d3;
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+.button:hover, .button:focus {
+  background:rgba(0, 185, 211,0.7);
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+.forgot {
+  margin-top: -15px;
+  text-align: right;;
+  font-size: 16px;
+}
+
+@media ( max-width:414px){
+  .tm-tab-group li a {
+    background: rgba(160, 179, 176, 0.25);
+    color: #a0b3b0;
+    font-size: 16px;
+    float: left;
+    width: 50%;
+    letter-spacing: 1px;
+  }
+
+  .tm-form {
+    padding: 30px 10px;
+  }
+}
+
