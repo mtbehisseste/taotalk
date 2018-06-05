@@ -1,0 +1,814 @@
+/****************************************************************************
+ *
+ * Copyright (c) 2017 ESound Tech. All Rights Reserved.
+ *
+ * This SOURCE CODE FILE, which has been provided by ESound as part
+ * of a ESound product for use ONLY by licensed users of the product,
+ * includes CONFIDENTIAL and PROPRIETARY information of ESound.
+ *
+ * USE OF THIS SOFTWARE IS GOVERNED BY THE TERMS AND CONDITIONS
+ * OF THE LICENSE STATEMENT AND LIMITED WARRANTY FURNISHED WITH
+ * THE PRODUCT.
+ *
+ * IN PARTICULAR, YOU WILL INDEMNIFY AND HOLD ESOUND, ITS RELATED
+ * COMPANIES AND ITS SUPPLIERS, HARMLESS FROM AND AGAINST ANY CLAIMS
+ * OR LIABILITIES ARISING OUT OF THE USE, REPRODUCTION, OR DISTRIBUTION
+ * OF YOUR PROGRAMS, INCLUDING ANY CLAIMS OR LIABILITIES ARISING OUT OF
+ * OR RESULTING FROM THE USE, MODIFICATION, OR DISTRIBUTION OF PROGRAMS
+ * OR FILES CREATED FROM, BASED ON, AND/OR DERIVED FROM THIS SOURCE
+ * CODE FILE.
+ *
+ *
+ *     File name:       index.js
+ *
+ *     History:
+ *     Date               Author            Comments
+ *     -----------------------------------------------------------------------
+ *     JAN 23, 2017       Vergil           Initial Release
+ *****************************************************************************/
+
+	$(document).ready(function() {
+		pageOnReady();
+		
+// 公告訊息
+		queryNews();
+// 熱門問答
+		queryHotkm();
+
+		
+		// 大數據圓餅圖
+		queryPieCharData();
+		
+
+
+		checkIfLogin()
+
+	})
+
+	function pageOnReady(){
+
+		$("#traceForm").keypress(function(event){
+			if(event.keyCode == 13){
+				queryTraceCase();
+			}
+		  
+		})
+
+		$("#loginForm").keypress(function(){
+			if(event.keyCode == 13){
+				cardLoggin();
+			}
+		})
+
+		$("#kmSerach").keypress(function(){
+			if(event.keyCode == 13){
+				doSearch();
+				event.preventDefault();
+			}
+		})
+
+
+	}
+	
+	function doSearch(){
+		
+		var text = $('#kmSerach').val() == "" ? " " : $('#kmSerach').val();
+		// text = text.replace(/[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?]/g,"");
+		window.location.href = '/main/PageCtrl?p=k_1&k='+text;
+	}
+	
+	function checkIfLogin(){
+
+		$.ajax({
+			data: {
+				func : "getPersonData",
+				isNeedSession :'Y'
+			},
+			url: '/servlet/CasePublicCtrl',  //com.esound.casem.CasePublicCtrl
+			type: 'POST',
+			dataType: 'json',
+			success: function (data)
+			{
+				
+				if(data.status == "success")
+				{
+
+					// $("#vip_menu").show();
+					$("#vip_menu").children()
+					.attr('href','/main/PageCtrl?p=v_1')
+					.removeClass('page-scroll')
+					.unbind('click');
+					
+					$("#vip_menu .vip_btn_icon")
+					.removeClass('fa fa-sign-in')
+					.addClass('icon-ty-icon-main-search-2')
+					.next().html('我的案件');
+
+					$(".vip_btn_rect").css('padding','7px 4px');
+					$(".vip-menu").css({
+						width:"122px",
+						right:"-85px",
+						background:"#008a00",
+						background:"-moz-linear-gradient(top,  #52b152 0%, #008a00 100%)",
+						background:"-webkit-linear-gradient(top,  #52b152 0%,#008a00 100%)",
+						background:"linear-gradient(to bottom,  #52b152 0%,#008a00 100%)",
+						filter:"progid:DXImageTransform.Microsoft.gradient( startColorstr='#52b152', endColorstr='#008a00',GradientType=0"
+
+					}).mouseenter(function(){
+						$(".vip-menu").css('right','4px');
+						
+					}).mouseleave(function(){
+						$(".vip-menu").css('right','-85px');
+						
+					});
+
+					$("#tm_a_tylogin").hide();
+					$("#tm_a_ctTab").css("width","100%");
+
+				}
+				else
+				{
+
+				}
+			},
+			error:function(){
+				//do nothing.
+			}
+		});
+	}
+
+
+
+
+	// 重刷新驗證碼
+	function refreshValidate_num(){
+
+		$(".validate-img").attr("src","/servlet/ValidateImgServlet?t="+new Date().getMilliseconds());		
+		
+	}
+	
+	//案件查詢
+	function queryTraceCase(){
+		var checkCaseId = /^[a-zA-Z0-9]{1,}$/;
+		var checkPassword = /^[a-zA-Z]{4}-\d{6}$/;
+
+		if(!$("#caseNum")[0].value.match(checkCaseId)){
+			showAlert("訊息", "請輸入正確的案件編號","$('#caseNum').focus();");
+			return ;
+		}
+		if(!$("#pwd")[0].value.match(checkPassword)){
+			showAlert("訊息", "請輸入正確的驗證碼格式","$('#pwd').focus();");
+			return ;
+		}	
+		if(!($("#valid_img1")[0].value != null && $('#valid_img1')[0].value.length > 0)){
+			showAlert("訊息", "請輸入正確的動態驗證碼","$('#valid_img').focus();");
+			return ;
+		}
+
+		openBlockUI("查詢中，請稍候");
+
+		$.ajax({  
+			url:'/servlet/CaseTraceCtrl',
+			data:{
+				func:"traceCase",
+				validateNum:$("#valid_img1").val(),
+				caseId: $("#caseNum")[0].value,
+				identifiedCode: $("#pwd")[0].value
+				},
+			type:"post",
+			dataType:"json",
+			success:function(data){ 
+				refreshValidate_num();
+				closeBlockUI();
+
+				if(data.result){
+					var dataStr = JSON.stringify(data);
+					var form = document.createElement('form');
+					var input = document.createElement('input');
+					input.type = 'hidden';
+					input.name = 'dataStr';
+					input.value =  Base64.encode(dataStr);
+					form.appendChild(input);
+					$(form).attr({'action':'/main/PageCtrl?p=t_1','method':'POST'}); ///main/PageCtrl?p=t_1
+					$('#traceForm').append(form);
+					$(form).submit();
+
+				}else{
+					closeBlockUI();
+					$("#valid_img1").val("");
+					showAlert("訊息",data.message);
+				}
+
+			},
+			error:function(){
+				refreshValidate_num();
+
+				closeBlockUI();
+				$("#valid_img1").val("");
+				showAlert("訊息","目前系統發生網路連線相關問題，請稍後再試。 <br> Code:A0013");
+			}
+		});
+	}
+
+	//市民卡登入
+	function cardLoggin()
+	{
+		if($("#card-num").val() == "")
+		{
+			showAlert("輸入錯誤","請輸入市民卡片外觀號碼。");
+			return;	
+		}
+		
+		if($("#card-date").val() == "")
+		{
+			showAlert("輸入錯誤","請輸入市民生日8碼。");
+			return;	
+		}
+
+		if($("#valid_img2").val() == ""){
+			showAlert("輸入錯誤","請輸入正確的動態驗證碼。");
+			return;
+		}
+		
+		openBlockUI("登入中，請稍候","");
+		var validation = false;
+
+		$.ajax({  //圖形驗證碼驗證
+			url:'/servlet/CaseTraceCtrl',
+			data:{
+				func:"validateRand",
+				validateNum:$("#valid_img2").val()
+				},
+			async:false,
+			type:"post",
+			dataType:"json",
+			success:function(data){ 
+				refreshValidate_num();
+				
+				if(data.result){
+					
+					validation = data.result;	
+				}else{
+					
+					$("#valid_img2").val("");
+
+					validation = data.result;
+					closeBlockUI();
+					showAlert("訊息","請輸入正確的動態驗證碼。");
+				}
+
+			},
+			error:function(){
+				closeBlockUI();
+
+				refreshValidate_num();
+				$("#valid_img2").val("");
+				showAlert("訊息","動態驗證碼過期，請重新輸入。");
+			},
+
+		});
+
+		if(validation){
+			// 圖形驗證成功
+			
+			$.ajax({ //登入桃園市民卡
+				data: {
+					func : "getPersonalInfo",
+					cardRfid : $("#card-num").val(),
+					birthday : $("#card-date").val(),
+					isNeedSession :'Y'
+				},
+				// async:false,
+				url: '/servlet/CasePublicCtrl',  //com.esound.casem.CasePublicCtrl
+				type: 'POST',
+				dataType: 'json',
+				success: function (data)
+				{
+					if(data.status == "success" && data.name.length > 0)
+					{
+						window.location.href="/main/PageCtrl?p=v_1";
+					}
+					else
+					{	
+						showAlert('訊息','卡片外觀號碼或生日8碼錯誤。');
+						$("#valid_img2").val("");
+					}
+
+				},
+				error:function(){
+					
+					showAlert('訊息','目前系統發生網路連線相關問題，請稍後再試。 <br> Code:A014');
+				},
+				complete:function(){
+					closeBlockUI();
+				},
+			});
+			
+		}
+		
+
+	}
+	
+	
+	
+// 公告訊息輪播的6筆
+	function queryNews() {
+
+		$.ajax({
+			type : "POST",
+			url : "/servlet/NewsService",
+			data: {
+				"f":"getLastestNews",
+				"start" : "0",
+				"length" : "6"
+				},
+			dataType:"json",
+
+			success: function(data) {
+				
+				if(data.data.length === 0){
+					$(".news-section").hide();
+					return;
+				}
+				$(".news-section").show();
+
+
+				var content = '';
+				var titleText = '';
+				var summaryText = '';
+				
+				var titleHTML = '';
+				var summaryHTML = '';
+				var startDate = '';
+				
+				var titleLimit;
+				var summaryLimit;
+				
+				if(screen.width < 1200 && screen.width >= 992){ //desktop
+					titleLimit = 80;
+					summaryLimit = 100;
+				}else if(screen.width < 992 && screen.width >= 768){ //iPad
+					titleLimit = 60;
+					summaryLimit = 90;
+				}else if(screen.width < 768 && screen.width >= 414){ //iPhone
+					titleLimit = 30;
+					summaryLimit = 70;
+				}else if(screen.width < 414 && screen.width >= 320){ 
+					titleLimit = 24;
+					summaryLimit = 40;
+				}else if(screen.width < 320){
+					titleLimit = 22;
+					summaryLimit = 40;
+				}
+				else{
+					titleLimit = 999;
+					summaryLimit = 120;
+				}
+				
+				content +=
+					'<div id="newsCarousel" class="carousel slide text-center" data-ride="carousel">'
+					+	'<div id="newsSlides" class="carousel-inner" role="listbox">'
+
+ 				for(var i in data.data){
+ 					if ( i == 0){
+ 						content += '<div class="item item-cust active">';
+ 					}else{
+ 						content += '<div class="item item-cust">';
+ 					}
+
+ 					if(data.data[i].title.length >titleLimit){
+ 						
+ 						titleText = data.data[i].title.substr(0,titleLimit-1)+"...";
+ 					}else{
+ 						titleText = data.data[i].title;
+ 					}
+ 					
+ 					if(data.data[i].content.length > summaryLimit){
+ 						summaryText = data.data[i].content.substr(0,summaryLimit-1)+'...';
+ 					}else{
+ 						summaryText = data.data[i].content;
+ 					}
+ 					 					
+ 					titleHTML = '<div class="item-title"><a class="fontText-xmd" href="/servlet/NewsService?f=getNewsContent&s='+data.data[i].seqNo+' " style="text-decoration:none;">'+titleText+'</a></div>';
+ 					var starImg = '';
+ 					if(data.data[i].important === 'Y'){
+ 						starImg = '<img src="/WebResource/images/icon-star.png" alt="重要公告" title="重要公告" style="margin:0 4px 6px 0;display:inline;"/>'
+ 					}
+ 					startDate = '<div class="item-date color-deep-gray"><h4 class="fontText-sm">'+starImg+data.data[i].startDate+'</h4></div>'
+					content += startDate + titleHTML
+					content += '</div>'
+				}
+
+					content +=
+						'</div>'
+					+	'<a class="left carousel-control" href="#newsCarousel" role="button" data-slide="prev"> '
+					+		'<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>'
+					+		'<span class="sr-only">上一則消息</span>'
+					+	'</a> '
+					+	'<a class="right carousel-control" href="#newsCarousel" role="button" data-slide="next"> '
+					+		'<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'
+					+		'<span class="sr-only">下一則消息</span>'
+					+	'</a>'
+					+'</div>'
+
+ 				
+				$("#carousel_container").html(content);
+
+				//activate
+				// $("#newsCarousel").carousel(0);
+			},
+			error:function(){
+
+				showAlert("訊息","目前系統發生網路連線相關問題，請稍後再試。 <br> Code:A015");
+			},
+			complete:function(){
+				checkCookieAndSetFont();
+			}
+		});
+		
+	}
+
+	
+// 先用contentArray把熱門物件html存起來，最後再判斷瀏覽器可用寬度決定使用哪種UI。
+	var contentArray;
+	function queryHotkm(){
+		// 1.檢舉交通違規2.路面不平整3.路燈故障4.占用道路、騎樓及人行道5.髒亂點查報6.交通號誌(紅綠燈)故障或損壞傾斜7.交通標誌牌面、反射鏡損壞傾斜8.公園、綠地及路樹養護9.交通罰單申訴10.公車問題及站牌、候車亭設施管理
+		// var mutiCateId =
+		// "SC001,SC017,SC024,SC011,SC045,SC031,SC032,SC028,SC002,SC037";
+		var mutiCateId = "SC001,SC017,SC024,SC011,SC045,SC031,SC032,SC028,SC002";
+		$.ajax({
+			type:"POST",
+			url:"/servlet/PublicKBCtrl",
+			async:true,
+			data:{
+				func:"getMutiPetitionDataList",
+				mutiCateId:mutiCateId,
+				length:10,
+			},
+			dataType:"json",
+			success:function(data){
+				contentArray = new Array();
+				
+				for(var i = 0 ; i < data.length ; i++){
+					var res = data[i].data;
+					if(res[0].KBId == undefined || res[0].title == undefined){
+						continue;
+					}
+
+
+					var itemHTML = '<div class="col-md-4">'
+						+'	<div class="panel panel-default text-center">'
+						+'		<div class="panel-heading bg-linear-blue">'
+						+'			<h3>'+transformCateText(data[i].cateId)+'</h3>'
+						+'		</div>'
+						+'		<div class="panel-body" style="height: 240px;overflow:hidden;">'
+						+'			<ul>'
+					for(var j = 0 ; j < res.length ; j++){
+//						字數限制
+//						var titleText = "";
+//						if (screen.availWidth < 992){
+//							if(res[j].title.length >56){
+//								titleText = res[j].title.substr(0,56)+"...";
+//							}else{
+//								titleText = res[j].title;
+//							}
+//						}else{
+//							if(res[j].title.length >28){
+//								titleText = res[j].title.substr(0,28)+"..."; 
+//							}else{
+//								titleText = res[j].title;
+//							}
+//						}
+//						itemHTML +='<li><a href="/main/PageCtrl?p=k_1?kId='+res[j].kId+'">'+titleText+'</a></li>'
+						if(res[j].KBId == undefined || res[j].title == undefined){
+							itemHTML += '<p class="fontText-md" style="text-align:center;color:#404040;">此案類沒有知識資料</p>'
+						}else{
+							itemHTML +='<li><a class="fontText-md" href="/main/PageCtrl?p=k_2&KBId='+res[j].KBId+'">'+res[j].title+'</a></li>'	
+						}
+					}
+					itemHTML += '</ul>'
+						+'		</div>'
+						+' <div class="panel-footer">'
+				        +'<a href="/main/PageCtrl?p=k_1&sc_Id='+data[i].cateId+' " class="btn btn-primary">查看全部</a>'
+				        +'</div>'
+						+'</div>'
+						+'</div>'
+				// 將輪播內容HTML都存在array
+					contentArray.push(itemHTML);
+				}
+				
+				// 建立bootstrap3輪播HTML
+				constructFAQ();
+				
+			},
+			error:function(){
+				$("#spotRect").html('<div style="height:200px;text-align:center;">無法顯示資料</div>')
+				showAlert("訊息","目前系統發生網路連線相關問題，請稍後再試。 <br> Code:A016")
+				
+			}
+		})
+	}
+	
+// 特定類別的TOP10
+	function constructFAQWithoutCarousel(sid){
+		$.ajax({
+			type:"POST",
+			url:"/servlet/PublicKBCtrl",
+			data:{
+				func:"getPetitionDataList",
+				subCaseId:sid,
+				start:0,
+				length:10
+			},
+			dataType:"json",
+			success:function(data){
+				var contentHTML = "";
+				var kmNum ;
+				var res = data.data;
+				if(res.length > 10){
+					kmNum = 10;
+				}else{
+					kmNum = res.length;
+				}
+				
+				contentHTML ='<div class="list-group">';
+				for(var i = 0 ; i < kmNum ; i++){
+					var index = i;
+					contentHTML += 
+						  '  <a href="/main/PageCtrl?p=k_2?kId='+res[i].kId+' " class="list-group-item">'
+						+'      <h4 class="list-group-item-heading fontText-md"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>    '+res[i].title+'<i class="fa fa-chevron-right" aria-hidden="true" style="float:right;"></i></h4>'
+						+'  </a>';
+				}
+				
+				+'</div>'
+
+				$("#modalFaq").html(contentHTML);
+			},
+			error:function(){
+				showAlert("訊息","目前系統發生網路連線相關問題，請稍後再試。 <br> Code:A017");
+			}
+			
+			
+		})
+	}
+	
+	function constructFAQ(){
+		if(contentArray.length > 0){
+			var contentHTML = "";
+			var page_num = 0;
+			// bootstrap3輪播html
+			contentHTML += '<div id="hotkmCarousel" class="carousel slide" data-ride="carousel">';
+				
+			if($("html").width() < 992){
+					
+				page_num = contentArray.length
+
+				contentHTML += '<ol class="carousel-indicators">'
+								+'	<li data-target="#hotkmCarousel" data-slide-to="0" class="active"></li>'
+
+				for(var i = 1 ; i < page_num ; i++){
+					contentHTML += '<li data-target="#hotkmCarousel" data-slide-to="'+i+'"></li>'
+				}
+					
+				contentHTML += '</ol>'
+
+							+'  <div class="carousel-inner" role="listbox">';
+			
+				for(var i = 0 ; i < contentArray.length ; i ++){
+					 contentHTML += '<div class="item '+ (i==0?"active":"") +'">'
+								+ contentArray[i]
+								+ '</div>';
+				}
+			}else{
+
+				if(contentArray % 3){
+					page_num = (contentArray.length / 3) + 1;
+				}else{
+					page_num = (contentArray.length / 3)
+				}
+
+				contentHTML += '<ol class="carousel-indicators">'
+							+'		<li data-target="#hotkmCarousel" data-slide-to="0" class="active"></li>'
+				for(var i = 1 ; i < page_num ; i++){
+					contentHTML += '<li data-target="#hotkmCarousel" data-slide-to="'+i+'"></li>'
+				}
+				contentHTML += '</ol>'
+
+							+'  <div class="carousel-inner" role="listbox">';
+							
+				for(var i = 0 ; i < contentArray.length ; i += 3){
+					var index = i;
+					var i_end = (index + 3);
+					if(i_end >= contentArray.length){
+						i_end = contentArray.length;
+					}
+					contentHTML += '<div class="item '+(i==0?"active":"")+'">';
+					for(var j = index ; j < i_end ; j ++){
+						contentHTML += contentArray[j];
+					}
+					contentHTML += '</div>';
+					
+				}
+			}
+			contentHTML += '</div>' 
+
+			contentHTML +='  <a class="left carousel-control" href="#hotkmCarousel" role="button" data-slide="prev">'
+						+'    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>'
+						+'    <span class="sr-only">上一輪知識</span>'
+						+'  </a>'
+						+'  <a class="right carousel-control" href="#hotkmCarousel" role="button" data-slide="next">'
+						+'    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'
+						+'    <span class="sr-only">下一輪知識</span>'
+						+'  </a>'
+						+'</div>';
+
+			$("#spotRect").html(contentHTML);
+		}
+	}
+	
+	var pieCharDataCache;
+	function queryPieCharData(){
+		$.ajax({
+			url: '/servlet/RptNumberCtrl',
+			type: 'POST',
+			data: {
+				func: 'getCaseNum',
+				top: 5,
+				dayNum: 30
+			},
+			dataType:'json',
+			success:function(data){
+				//如果沒有資料就不顯示
+				if(data.TOTAL == null){
+					$("#statistics").hide();
+					$(".statistics-section").hide();
+					return;
+				}
+
+				var labels = [];
+				var datas = [];
+				var other = parseInt(data.TOTAL);
+				$.each(data.count, function( i, row ) {
+					$("#CharDataName"+(i+1)).html(row.CATEID);
+					$("#CharDataCount"+(i+1)).html(row.TOTAL+'件');
+					// $("#CharDataCount"+(i+1)).html(row.TOTAL);
+					other = other - parseInt(row.TOTAL);
+					labels.push(row.CATEID);
+					datas.push(row.TOTAL);
+				});        	
+				$("#CharDataNameZ").html('其餘項目');
+				$("#CharDataCountZ").html(other+'件');
+				$("#CharDataNameT").html('總件數');
+				$("#CharDataCountT").html(data.TOTAL+'件');
+				
+				labels.push("其餘項目");
+				datas.push(other);
+				pieCharDataCache = {"labels":labels,"datas":datas};
+			},
+			error:function(){
+
+			}
+		})		
+	}
+	
+// 建立一個圓餅圖
+	var pieChart;
+	var buildCount = 0;
+	function buildCasePieChart(){
+		if(pieChart){
+			return;
+		}
+
+		var labels;
+		var datas;
+		if(pieCharDataCache != undefined && pieCharDataCache != null){
+			labels = pieCharDataCache['labels'];
+			datas = pieCharDataCache['datas'];
+		}else{			
+			//loop20次，沒資料就暫停
+			if(buildCount < 20){
+				setTimeout(function(){
+					buildCount ++;
+					buildCasePieChart();
+				},500);
+			}
+			return;	
+		}
+		
+		Chart.defaults.global.legend.display = false;
+		// Chart.defaults.global.tooltips.enabled = false;
+		var ctx = $("#myChart");
+		pieChart = new Chart(ctx, {
+		    type: 'doughnut',
+		    // type: 'pie',
+			data: {
+			    labels: labels,
+			    datasets: [{
+			    			 data: datas,
+			                 backgroundColor: [
+			                     "#FF6384",
+			                     "#36A2EB",
+			                     "#FFCE56",
+			                     "rgb(232,51,23)",
+			                     "rgb(132,12,231)",
+			                     "#5844ca"
+			                 ],
+			                 hoverBackgroundColor: [
+			                     "#FF6384",
+			                     "#36A2EB",
+			                     "#FFCE56",
+			                     "rgb(255,77,55)",
+			                     "rgb(112,12,211)",
+			                     "#5844ca"
+			                 ],
+			                 hoverBorderWidth:["3","3","3","3","3"],
+			                 hoverBorderColor:["#48c0e4"]
+			             }],
+	             
+			     },
+			responsive: true,
+        	
+			options: {
+			 	cutoutPercentage:50,
+				animation:{
+					duration : 2000,
+		            //String - 动画的效果
+		            easing : "easeOutBounce",
+		            //Boolean -是否旋转动画
+		            rotate : true,
+		            //Boolean - 是否动画缩放饼图中心（效果不错）
+		            animateScale : true,
+		            numSteps:5,
+				    },
+				legend:{
+				 	display:false,
+				 	labels:{
+				 		fontColor:"#888",
+				 		// fontSize:"14",
+
+				 	}
+				 }
+			 }
+		});
+	}
+	
+	function resendEmail()
+	{
+		BootstrapDialog
+				.show({
+					title : '重新寄送案件受理確認信。',
+					message : $('<input class="form-control" id="resendEmailAddr" placeholder="請填寫建議時所輸入之電子郵件。"/>'),
+					buttons : [
+							 {
+								label : '取消',
+								hotkey : 27, // escape
+								action : function(dialogRef) {
+									dialogRef.close();
+								}
+							 },
+							 {
+								label : '確定',
+								cssClass : 'btn-primary',
+								hotkey : 13, // Enter.
+								action : function(dialogRef) {
+									var email = dialogRef.getModalBody().find('input[id=resendEmailAddr]').val();
+									
+									if(isEmail(email))
+							    	{
+							    		$.ajax({
+											data: {
+												func : "resendValidateMail",
+												mailAddr : email
+											},
+											url: '/servlet/CasePublicCtrl',  //com.esound.casem.CasePublicCtrl
+											type: 'POST',
+											dataType: 'json',
+											success: function (data)
+											{
+												
+												alert(data.message);
+												dialogRef.close();
+											},
+											error:function(){
+												
+												showAlert("訊息","目前系統發生網路連線相關問題，請稍後再試。 <br> Code:A020");
+												dialogRef.close();
+											}
+							    		});
+							    	}
+							    	else
+							    	{	
+							    		 showAlert('訊息','請輸入有效的電子郵件.');
+							    	}
+							    }
+								
+							}]
+						})
+					
+	}
+	
+
+	
+
+
+	

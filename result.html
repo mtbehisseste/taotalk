@@ -1,0 +1,1086 @@
+<html><head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+        <title>桃園市政信箱</title>
+        <link rel="icon" href="/WebResource/images/favicon.ico" type="image/x-icon">  
+        <link rel="shortcut icon" href="/WebResource/images/favicon.ico" type="image/x-icon">  
+        
+        
+        <link rel="stylesheet" href="/WebResource/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/WebResource/vendor/bootstrapDialog/bootstrap-dialog.min.css">
+        <link rel="stylesheet" href="/WebResource/vendor/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/WebResource/vendor/bootstrapDatePicker/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="/WebResource/vendor/jqueryTimelinr/jquery.timelinr.css" media="screen">
+        <link rel="stylesheet" href="/WebResource/css/agency.min.css?v=1.0">
+        <link rel="stylesheet" href="/WebResource/css/petitionInfo.min.css?v=1.1">
+        
+        </head>
+        <body style="" class="">
+        
+          <!--[if !IE]> -->
+          
+        
+        
+        
+        <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top notprint affix">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-bars"></i>
+              </button>
+              <a id="menuLogo" class="navbar-brand" >
+                <img src="/WebResource/images/logoTop.png" alt="tylogo">
+              </a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="hidden"><a href="#page-top"></a></li>
+                <!-- <li class="hide-sm"><a href="/"><i class="icon-ty-icon-main-home"></i>首頁</a></li> -->
+                <!-- <li><a href="/main/PageCtrl?p=n_1"><i class="icon-ty-icon-main-news"></i>公告訊息</a></li> -->
+                <li><a href="/tycg.html"><i class="icon-ty-icon-main-petition"></i>市政建議</a></li>
+                <li><a href="/index.html"><i class="icon-ty-icon-main-search"></i>案件查看</a></li>
+                <!-- <li><a href="/main/PageCtrl?p=k_1"><i class="icon-ty-icon-main-faq"></i>熱門問答</a></li> -->
+                <li><a href="/#statistics"><i class="icon-ty-icon-main-chart-2"></i>數據統計</a></li>
+                <li>
+                  <ul style="padding: 0;">
+                    <li class="font-leagel hide-sm" id="fontLogo"><i class="icon-ty-icon-main-size"></i></li>
+                    <li class="font-leagel" style="margin-left: 4px;"><a id="fontsm" href="javascript:void(0)" style="display: block" onclick="changeFont('small')" class="fontActive">小</a></li>
+                    <li class="font-leagel"><a id="fontmd" href="javascript:void(0)" style="display: block" onclick="changeFont('medium')" class="unactive">中</a></li>
+                    <li class="font-leagel"><a id="fontlg" href="javascript:void(0)" style="display: block" onclick="changeFont('large')" class="unactive">大</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
+        
+          <!-- <![endif]-->
+          <!--[if IE 9]>
+          
+        
+        
+        
+        <nav id="mainNav"
+          class="navbar navbar-default navbar-custom navbar-fixed-top notprint">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-bars"></i>
+              </button>
+              <a id="menuLogo" class="navbar-brand" href="/">
+                <img src="/WebResource/images/logoTop.png" alt="tylogo">
+              </a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="hidden"><a href="#page-top"></a></li>
+                <li class="hide-sm"><a href="/"><i class="icon-ty-icon-main-home"></i>首頁</a></li>
+                <li><a href="/main/PageCtrl?p=n_1"><i class="icon-ty-icon-main-news"></i>公告訊息</a></li>
+                <li><a href="/main/PageCtrl?p=p_1"><i class="icon-ty-icon-main-petition"></i>市政建議</a></li>
+                <li><a href="/#caseTrace"><i class="icon-ty-icon-main-search"></i>案件查詢</a></li>
+                <li><a href="/main/PageCtrl?p=k_1"><i class="icon-ty-icon-main-faq"></i>熱門問答</a></li>
+                <li><a href="/#statistics"><i class="icon-ty-icon-main-chart-2"></i>數據統計</a></li>
+                <li>
+                  <ul style="padding: 0;">
+                    <li class="font-leagel hide-sm" id="fontLogo"><i class="icon-ty-icon-main-size"></i></li>
+                    <li class="font-leagel" style="margin-left: 4px;"><a id="fontsm" href="javascript:void(0)" style="display: block" onclick="changeFont('small')">小</a></li>
+                    <li class="font-leagel"><a id="fontmd" href="javascript:void(0)" style="display: block" onclick="changeFont('medium')" class="unactive">中</a></li>
+                    <li class="font-leagel"><a id="fontlg" href="javascript:void(0)" style="display: block" onclick="changeFont('large')" class="unactive">大</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          
+          <!-- /.container-fluid -->
+        
+        
+          <!--[endif]---->
+          
+        
+          <!-- offset height -->
+          <div class="offset-rect"></div>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div id="timeline">
+                   <ul id="dates" style="padding:0 10px;">
+                      <li class="tl-done"><a href="javascript:void(0)"><i class="fa fa-book" aria-hidden="true"></i>    選擇分類</a></li>
+                      <li class="tl-done"><a href="javascript:void(0)"><i class="fa fa-pencil" aria-hidden="true"></i>    填寫內容</a></li>
+                      <!-- <li class="tl-prepare"><a href="javascript:void(0)"><i class="fa fa-id-card" aria-hidden="true"></i>    身分驗證</a></li> -->
+                      <li class="tl-active"><a class="selected" href="javascript:void(0)"><i class="fa fa-paper-plane" aria-hidden="true"></i>    結果評估</a></li>
+                   </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- 失效訊息 -->
+          <div class="container" id="blockMsg" style="display:none;">
+            <div style="margin:13% 20%;padding:20px;">
+              <div style="color:darkorange;margin-bottom:20px;background:#fed143;font-weight:700;padding:8px;margin-bottom:20px;behavior:url(id-css3.htc);border-radius:4px;">
+                <i class="fa fa-exclamation" aria-hidden="true" style="position:relative;top:2px;"></i>    我們偵測到您的瀏覽器版本過低
+              </div>
+              <div style="border:6px double #a0a0a0;color:#555;float:left;padding:20px;background: #fff;">
+                <div style="float:left;position:relative;left:6px;width:40%">
+                  <img src="/WebResource/images/logo_hz.png" alt="桃園市政信箱logo" style="width:100%;">
+                </div>
+                
+                <div style="letter-spacing:1px;line-height:28px;padding:0 20px 0 44%;font-size:20px;">我們偵測到您的IE瀏覽器<i class="fa fa-internet-explorer" aria-hidden="true"></i>  版本低於8。<br>建議您下載使用其他瀏覽器，如
+                <a href="https://www.google.com.tw/chrome/browser/desktop/" target="_blank">Google Chrome</a>
+                或
+                <a target="_blank" href="https://www.mozilla.org/zh-TW/firefox/new/?gclid=Cj0KEQjw0IvIBRDF0Yzq4qGE4IwBEiQATMQlMfuKGqSIYk89sYk-eyjnm22VJa3IA9lceiMqr_72pCkaAp3u8P8HAQ&amp;gclsrc=aw.ds&amp;utm_campaign=Firefox%7cGG%7cSearch%7cB%7cBMM%7cSP%7cTW%7cTS%7cDK%7cText%7cBrand&amp;utm_content=A144_A203_A008009&amp;utm_medium=paidsearch&amp;utm_source=google&amp;utm_term=%2Bfirefox%20download">Firefox</a>
+                ，或者升級您的IE瀏覽器<i class="fa fa-internet-explorer" aria-hidden="true"></i>  至最新版本(IE 9以上)以使用本系統。<br>造成您的不便，敬請見諒。
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        
+          <div class="container-fluid" id="caseContainer">
+            <div class="row">
+              
+              <div class="col-sm-12 title-background">
+                <h2><i class="icon-ty-icon-main-petition"></i>    結果預估</h2>
+              </div>
+              
+              <div class="col-sm-12">
+                <div class="section-border-sp bg-white">
+                  <!-- 傳送到下一頁的標單 -->
+                  <div name="form_validate_Form" id="form_validate_Form"></div>	
+        
+                  <div name="dynamicForm" id="dynamicForm">
+                    <div name="form_content" id="form_content">
+        
+                      <input type="hidden" id="channel" name="channel" value="D"> 
+                      <input type="hidden" id="caseId" name="caseId" value=""> 
+                      <input type="hidden" id="cateId" name="cateId" value="SC001">
+                      <input type="hidden" id="cardId" name="cardId" value="">
+                      <input type="hidden" id="cardRfid" name="cardRfid" value="">
+                      <input type="hidden" id="birthday" name="birthday" value="">
+                      <input type="hidden" id="maxFileSize" name="maxFileSize" value="30">
+        
+                      <input type="hidden" name="occurTownName" id="occurTownName"> 
+                      <input type="hidden" name="occurVillage" id="occurVillage"> 
+                      <input type="hidden" name="occurVillageName" id="occurVillageName"> 
+                      <input type="hidden" name="occurX" id="occurX">
+                      <input type="hidden" name="occurY" id="occurY"> 
+                      <input type="hidden" name="is15m" id="is15m"> 
+                      <input type="hidden" name="roadType" id="roadType"> 
+                      <input type="hidden" name="roadId" id="roadId"> 
+                      <input type="hidden" name="policeBranch" id="policeBranch">
+        
+                      <!-- 內容 -->
+                      <div class="formSec">
+        
+                        <div class="tabling-head bg-linear-blue">
+                          <label><i class="fa fa-pencil-square-o" aria-hidden="true"></i>    案件預估完成時間</label>
+                        </div>
+                        <div class="tabling-content">
+                          <table style="width: 100%;">
+                            <tbody>
+                              <tr>
+                                <td class="chead fontText-sm" style="font-size: 14px;">案件類別</td>
+                                <td class="cbody">
+                                </td>
+                                
+                              </tr>
+                              <tr>
+                                <td class="chead fontText-sm" style="font-size: 14px;">預估完成時間</td>
+                                <td class="cbody"></td>
+                              </tr>
+                              <tr>
+                                <td class="chead fontText-sm" style="font-size: 14px;">精準度</td>
+                                <td class="cbody">        
+                                </td>
+                              </tr>
+                              <tr id="cateDescRect" style="">
+                                <td class="chead fontText-sm" style="font-size: 14px;">案類說明</td>
+                                <td class="cbody">
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>       
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <div class="">
+                  <!-- 回案類選單 -->
+                  <div class="btn-box-parallel" style="margin:auto;width:50%; display:block;">
+                        <a class="btn btn-primary step-btn fontText-md" href="/tycg.html" id="back" style="font-size: 16px;"><i class="fa fa-chevron-left" aria-hidden="true"></i>     返回選單</a>
+                  </div>
+                  
+                  <!-- 下一步 -->
+                  <!-- <div class="btn-box-parallel" style="float: right;">
+                      <a class="btn btn-primary step-btn fontText-md" href="javascript:void(0)" id="next" onclick="commuPhp()" style="font-size: 16px;">下一步    
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        <script>
+                        function commuPhp() {
+                            var url = window.location.pathname;
+                            var filename = url.substring(url.lastIndexOf('/')+1);
+                            filename = filename[4];
+                            
+                            var latlongstring =  document.getElementById("occurredAddress").value;
+                            var sp = latlongstring.split(' ');
+                            var lat = sp[0];
+                            var lng = sp[1];
+                
+                            var xmlhttp = new XMLHttpRequest();
+                            xmlhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                alert(this.responseText);
+                            }
+                            };
+                            xmlhttp.open("GET", "requestHandler.php?q=" + filename + '_' + lat + '_' + lng, true);
+                            xmlhttp.send();
+                        }
+                        </script>
+                    </a>
+                  </div> -->
+      
+      
+              </div>
+          </div>
+      
+          <!-- Modal -->
+            <div class="modal fade" id="mapModal" role="dialog" style="display: none;">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">×</button>
+                      <h4 class="modal-title">地圖定位發生地點</h4>
+                  </div>
+                  <div class="modal-body">
+      
+                      <p class="fontText-sm color-light-gray" style="font-size: 14px;">請在地圖上定位發生地點後點選"回填地址"。</p>
+                      <div id="map-block" style="clear: both; position: static; zoom: 1;">
+                      <ul class="map-marker fontText-xs" style="font-size: 12px;">
+                          <li><i class="fa fa-map-marker"></i>    地址定位</li>
+                          <li><i class="fa fa-map-marker"></i>    近日通報類似案件</li>
+                      </ul>
+      
+      
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <!-- <button type="button" class="btn btn-primary" onclick="searchOnMap(true)"><i class="fa fa-location-arrow"></i>    地址定位</button> -->
+                      <button type="button" class="btn btn-primary" onclick="locateOnGis()"><i class="fa fa-map-marker"></i>    我的位置</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">確認關閉</button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+      
+      
+          
+      
+          
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <link rel="stylesheet" href="/WebResource/css/footer.min.css">
+      
+      
+      <footer class="footer notprint">
+      
+              <div class="container" id="footer2">
+                  <div class="row">
+                      <div class="col-md-3">
+                              <ul style="list-style-type: none;padding: 0;">
+                                  <li class="li-logo"><a href="http://www.tycg.gov.tw" target="_blank"><img src="/WebResource/images/tyLogo.png" alt="桃園市政府官方網站" title="桃園市政府官方網站" style="width: 100px;"></a></li>
+                                  <li><ul class="crowd">
+                                              <li class="fontText-sm" style="font-size: 14px;">今日瀏覽人數：811</li>
+                                              <li class="fontText-sm" style="font-size: 14px;">總瀏覽人數：369442</li>
+                                          </ul>
+                                  </li>
+                              </ul>
+                      
+                      </div>
+                      <div class="col-md-5">
+                          <div class="div-privacy">
+                              <a class="fontText-sm" data-toggle="modal" data-target="#privacy" style="color: rgb(136, 0, 0); cursor: pointer; font-size: 14px;" title="隱私權保護政策">隱私權保護政策</a>| 
+                              <a class="fontText-sm" href="http://www.tycg.gov.tw/ch/home.jsp?id=56&amp;parentpath=0,2" target="_blank" style="color: rgb(136, 0, 0); font-size: 14px;" title="市府連絡資訊">市府交通資訊</a>
+                          </div>
+                          <ul class="ul-privacy">
+                              <li class="fontText-sm" style="font-size: 14px;">本網站為桃園市政府版權所有</li>
+                              <li class="fontText-sm" style="font-size: 14px;">33001 桃園市桃園區縣府路一號 TEL：03-3322101</li>
+                              <li class="fontText-sm" style="font-size: 14px;">民眾如有市政問題，歡迎多加利用<a href="http://211.78.89.155:12821/webchatQbi/index.html" target="_blank">1999</a>專線洽詢</li>
+                              <li class="fontText-sm" style="font-size: 14px;">桃園市境內民眾請撥1999，外縣市民眾請撥03-2189000</li>
+                              <li class="fontText-sm" style="font-size: 14px;">建議使用瀏覽器版本Microsoft IE10、FireFox 13、Safari 6、Chrome 13以上</li>
+                          </ul>
+                      </div>
+                      <div class="col-md-4 div-privacy">
+                          <div class="">
+                              <p class="fontText-xmd" style="font-weight: bold; font-size: 18px;">桃園市市民卡App</p>
+                          </div>
+                          <div style="min-height: 132px;">
+                              <p class="fontText-md" style="margin: 0px; font-size: 16px;">即刻安裝桃園市市民卡App</p>
+                              <p class="fontText-md" style="margin: 0px; font-size: 16px;">市政建議、大小資訊，一手掌握！</p>
+                              <img src="/WebResource/images/applestore.png" style="width: 90px;height: 90px;">
+                              <img src="/WebResource/images/googleplay.png" style="width: 90px;height: 90px;">
+                              
+                          </div>
+                      </div>
+                      
+                  </div>
+              </div>
+          </footer>
+          
+      
+      
+      
+      
+      
+        <!-- Modal -->
+        <div class="modal fade" id="traceModal" role="dialog">
+          <div class="modal-dialog modal-md" style="width:100vw;margin:0;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">案件查詢結果</h4>
+              </div>
+              <div class="modal-body" style="padding: 0;max-height: calc(100vh - 122px);overflow-y: auto;">
+                  <div class="vip-case-body">          
+                    <table class="table" style="margin: 0;">
+                        <tbody><tr>
+                          <td>
+                              <p class="case-head1">案件編號：</p>
+                              <p class="case-body1 fontText-sm" id="showCaseId" style="font-size: 14px;"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="case-head1">受理時間：</p>
+                                <p class="case-body1 fontText-sm" id="acceptedTime" style="font-size: 14px;"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                              <p class="case-head1">案件狀態：</p>
+                              <p class="case-body1 fontText-sm" id="caseStatus" style="font-size: 14px;"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                              <p class="case-head2 text-center">案件主旨</p>
+                              <p class="case-body2 fontText-sm" id="petitionSubject" style="font-size: 14px;"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="case-head2 text-center">案件內容</p>
+                                <p class="case-body2 fontText-sm" id="petitionContent" style="font-size: 14px;"></p>
+                            </td>
+                        </tr>
+                        <tr id="attachmentFilesField">
+                            <td>
+                              <p class="case-head2 text-center">附加檔案</p>
+                              <p class="case-body2 fontText-sm" id="_attachmentFiles" style="font-size: 14px;"></p>
+                          </td>
+                        </tr>
+                        <tr id="replayField1">
+                            <td>
+                                <p class="case-head2 text-center" id="replayTitle1"></p>
+                                <p class="case-body2 fontText-sm" id="replayTitleContent1" style="font-size: 14px;"></p>
+                            </td>
+                        </tr>
+                        <tr id="replayField2">
+                            <td>
+                                <p class="case-head2 text-center" id="replayTitle2"></p>
+                                <p class="case-body2 fontText-sm" id="replayTitleContent2" style="font-size: 14px;"></p>
+                            </td>
+                        </tr>
+                        <tr id="replayField3">
+                            <td>
+                                <p class="case-head2 text-center" id="replayTitle3"></p>
+                                <p class="case-body2 fontText-sm" id="replayTitleContent3" style="font-size: 14px;"></p>
+                            </td>
+                        </tr>
+                        <tr id="replayFilesField">
+                            <td>
+                              <p class="case-head2 text-center">回覆檔案</p>
+                              <p class="case-body2 fontText-sm" id="_replayFiles" style="font-size: 14px;"></p>
+                          </td>
+                        </tr>
+                  </tbody></table>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <a id="stfBtn" href="" target="_blank" style="display: none;"><button type="button" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true" style="color: orange;"></i>    填寫滿意度問卷</button></a>
+                  <button type="button" id="claimBtn" class="btn btn-primary" onclick="getPersonDataForClaim();" style="display: none;"><i class="fa fa-anchor" aria-hidden="true" style="transform: rotate(45deg);color: orange;"></i>    認領案件</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true" style="color: orange;"></i>    關閉</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="privacy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">隱私權保護政策</h4>
+                  </div>
+                  <div class="modal-body">
+      
+      
+                      「桃園市政府市政信箱」網站(以下簡稱本網站)為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：<br>
+      
+                      一、隱私權保護政策的適用範圍 <br>
+                      隱私權保護政策內容為本網站如何處理在您使用網站服務時蒐集到之資料。隱私權保護政策不適用於本網站以外的相關連結網站，也不適用於非本網站所委託或參與管理的人員。<br>
+      
+                      二、資料的蒐集與使用方式<br> 為了在本網站上提供您最佳的互動性服務，可能會請您提供相關個人的資料，其範圍如下： <br>
+                      線上活動及網路問卷調查：當您參加桃園市政府網站線上活動或網路問卷調查時，可能會請您提供姓名、身分證字號、電話、電子信箱及住址等個人資訊。您要注意的是每個活動或調查都是獨立個案，主辦單位或有不同，但本網站會為您做到要求每個個案都有獨立的個資告知書，惟有您簽署同意後，始能繼續活動或調查，而當您要行使當事人權利時，也請依個案個資告知書所載方式聯絡權責機關。這類的活動所蒐集的姓名、身分證字號等，存放在本網站資料庫者僅供活動辦理依據，電話、e-mail及住址等資訊，則作為通知結果及分析之用，除非依法取得您的同意，否則本網站不會將該等資料用做其他用途。此外，為提供精確的服務，我們會將收集的問卷調查內容進行統計與分析，分析結果之統計數據或說明文字呈現，除供內部研究外，我們會視需要公佈統計數據及說明文字。您也可能因為本網站的廣告宣導之超連結，而參與其他網站或機構主辦的抽獎、競賽或行銷活動，對於您主動提供的個人資訊，這些機構或連結網站各有其個別的隱私權保護政策，其資料處理措施不適用本網站隱私權保護政策。<br>
+      
+                      訂閱電子報：您希望透過電子信箱取得市府各項便民的資訊服務時，必須正確填入電子信箱確保可收到所需資訊。我們因作業需求，會保留您填入的資料，並提供取消訂閱或變更之服務。<br>
+                      一般瀏覽：伺服器會自行記錄相關行徑，包括您使用連線設備的IP位址、使用時間、使用的瀏覽器、瀏覽及點選資料記錄等，做為我們增進網站服務的參考依據，此記錄為內部應用，決不對外公佈。
+                      <br> 其他：如果您寫信與本府聯繫或是透過其他管道向我們反應意見，我們也會保存此項通訊及處理紀錄。<br> 三、資料之保護 <br>
+                      本網站主機均設有防火牆、防毒系統等相關的各項資訊安全設備及必要的安全防護措施，加以保護網站及您的相關資料採用嚴格的保護措施，只由經過授權的人員才能接觸您的相關資料，相關處理人員皆簽有保密合約，如有違反保密義務者，將會受到相關的法律處分。
+                      <br> 如因業務需要有必要委託本府相關單位提供服務時，本網站亦會嚴格要求其遵守保密義務，並且採取必要檢查程序以確定其將確實遵守。
+                      <br> 四、資料的分享與公開方式<br>
+                      本網站不會任意出售、交換、或出租任何您的個人資料給其他團體或個人。只有在以下狀況，本網站會在本政策原則之下，與第三者共用您的個人資料。<br>
+                      為了提供您其他服務或優惠權益：需要與提供該服務或優惠之第三者共用您的資料時，本網站會在活動時提供充分說明，並且在資料收集之前通知您，您可以自由選擇是否接受這項特定服務或優惠。<br>
+                      為進行服務品質加值、評估及研究：為提供網友更精確及優質之服務，本網站得按照資料保密協議，將使用者資料與第三人資料比較對照。此外，為了向未來的合作伙伴、廣告的單位及其他第三方介紹我們的服務及其他的合法目的，本網站得在不具名的情形之下，揭露使用者之統計資料。<br>
+                      其他：本網站有義務保護其網友隱私及個人資料，非經您本人同意不會自行修改、刪除或提供任何（或部份）網友個人資料及檔案。除非經過您事先同意或符合以下情況；<br>
+                      ●中華民國司法檢調單位透過合法程序進行調閱。<br> ●違反網站相關規章且已造成脅迫性。<br>
+                      ●基於主動衍伸政府網站服務效益之考量。<br> ●保護其他網友之合法使用權益<br> 五、網站對外的相關連結 <br>
+                      本網站的網頁提供其他網站的網路連結，您也可經由本網站所提供的連結，點選進入其他網站。但該連結網站不適用本網站的隱私權保護政策，您必須參考該連結網站中的隱私權保護政策。<br>
+      
+                      六、Cookie之使用<br>
+                      為了提供您最佳的服務，本網站會在您的電腦中放置並取用我們的Cookie，若您不願接受Cookie的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕Cookie的寫入，但可能會導至網站某些功能無法正常執行。<br>
+      
+                      七、隱私權保護政策之修正 <br> 本網站隱私權保護政策將因應需求隨時進行修正，修正後的條款將刊登於網站上，不另行個別通知。<br>
+      
+                      八、隱私權暨資訊安全保護政策諮詢<br>
+                      如果您對於我們的隱私權保護政策或是有個人資料收集、運用、更新等問題，請於上班時間聯絡網站維護機關(本府各機關聯絡電話)。<br>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>    關閉</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="open" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">桃園市政府暨所屬機關網站資料開放宣告</h4>
+                  </div>
+                  <div class="modal-body">
+      
+      
+      
+                      一、授權方式及範圍<br>
+      
+                      為利各界廣為利用網站資料，桃園市政府暨所屬機關網站上刊載之所有資料與素材，其得受著作權保護之範圍，以無償、非專屬，得再授權之方式提供公眾使用，使用者得不限時間及地域，重製、改作、編輯、公開傳輸或為其他方式之利用，開發各種產品或服務（簡稱加值衍生物），此一授權行為不會嗣後撤回，使用者亦無須取得本機關之書面或其他方式授權；然使用時，應註明出處。<br>
+      
+                      二、相關事項說明：<br>
+      
+                      (一)本授權範圍僅及於著作權保護之範圍，不及於其他智慧財產權利，包括但不限於專利、商標、及機關標誌之提供。<br>
+      
+                      (二)當事人自行公開或依法令公開之個人資料是否得被蒐集、處理及利用，使用者須自行依照個人資料保護法之相關規定，規劃並執行法律要求之相應措施。<br>
+      
+                      (三)部分的影音、圖像、樂譜、專人專案撰文或其他著作，經機關特別聲明須經同意方可使用者。 <br>
+      
+                      三、應注意不得侵害第三人之著作人格權(包括姓名表示權及禁止不當變更<br>
+      
+                      四、使用本授權提供之資料與素材，不得惡意變更其相關資訊，若利用後所展示之資訊與原資料與素材不符，使用者須自負民事、刑事上之法律責任。<br>
+      
+                      五、本網站之授權，並不授予使用者代表本機關建議、認可或贊同其加值衍生物之地位。<br>
+      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>    關閉</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      
+      <!-- Modal -->
+      <div class="modal fade" id="infoSecurity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content" style="width: 700px;">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                      <h4 class="modal-title" id="myModalLabel">「桃園市政府市政信箱」網站安全政策</h4>
+                  </div>
+                  <div class="modal-body">
+                      「桃園市政府市政信箱」網站（以下簡稱本網站）為保障您及本網站的資料安全，特別依照「個人資料保護法」之精神，擬定以下網站安全政策，以說明本網站在資通安全方面的作法的。<br>
+      
+      
+                      一、政策適用範圍：<br>
+                      以下的網站安全政策，適用於您在本網站瀏覽時，所涉及的個人資料蒐集、運用與保護，但不適用於在本網站置設之其他網站之連結，當您點選連結至其他網站時，適用各該網站的網站安全政策。<br>
+      
+      
+                      二、資訊存取控制 ：<br> 訂定系統存取政策及授權規定，並以書面、電子或其他方式告知員工及使用者之相關權限及責任。<br>
+                      離（休）職人員，應立即取消各項資訊資源之所有權限，並列入離（休）職之必要手續。人員職務調整及調動，應依系統存取授權規定，限期調整其權限。<br>
+                      建立系統使用者註冊管理制度，加強使用者通行密碼管理，使用者通行密碼之更新周期，最長以不超過六個月為原則。<br>
+                      對系統服務廠商以遠端登入方式進行系統維修者，應加強安全控管，並建立人員名冊，課其相關安全保密責任。<br>
+                      建立資訊安全稽核制度，定期或不定期進行資訊安全稽核作業。<br> 三、網站安全措施與規範<br>
+                      任何未經授權而企圖上載或更改本機關
+                      所提供的各項服務及相關資訊的行為，都是嚴厲禁止而且可能觸犯法律。為了網站安全的目的和確保這項服務能夠繼續服務所有的網路使用者，本網站提供了以下的安全保護措施：<br>
+                      與外界網路連接之網點，設立防火牆控管外界與內部網路之資料傳輸及資源存取，並執行嚴謹的身分辨識作業。<br>
+                      使用網路入侵偵測系統，監控網路流量，以確認未經授權而企圖上載或更改、網頁資訊或蓄意破壞者。<br>
+                      裝設掃毒軟體，定期掃毒，以提供使用者更安全的網頁瀏覽環境。<br>
+                      建立系統備援設施，定期執行必要的資料、軟體備份及備援作業，以備發生災害或儲存媒體失效時，可迅速回復正常作業。<br>
+                      不定期摹擬駭客攻擊，演練發生安全事件時的系統回復程序，並提供適當的安全防禦等級。<br>
+                      機密性及敏感性的資料或文件，不存放在對外開放的資訊系統中，機密性文件不以電子郵件傳送。<br>
+                      自動接收所有來自相關作業系統廠商或應用程式廠商所寄發的安全維護電子信通知，並依照電子信的建議，安裝適當的修補程式（ PATCH ）。<br>
+                      網際網路資料的傳輸不能保證百分之百的安全，本網站將努力保護本網站及您個人資料的安全，部分情況下會使用通行標準的 SSL
+                      保全系統，保障資料傳送的安全
+                      性。但由於資料傳輸過程牽涉您上網環境保全之良窳，我們並無法確保您傳送或接收本網站資料的安全，您須注意並承擔網路資料傳輸之風險。請您諒解此部份所造成的後果均非本網站所能控制範圍。<br>
+      
+      
+                      四、 防火牆之安全管理<br> 防火牆具備網路服務的轉送伺服器（如代理伺服器（ Proxy Server ）等）以提供 Telnet
+                      、 FTP 、 WWW 等網路服務的轉送與控管。<br>
+                      防火牆係本府整個網路之樞紐，對於防火牆主機及軟體，均應預留一套備份，以備不時之需。<br>
+                      本機關防火牆系統平時記錄整個網路之活動事件，記錄檔之資料至少應包括事件之日期、時間、起訖 IP
+                      、通訊協定等項目，以便於平時之管理及日後之稽核作業。<br> 本府防火牆之記錄檔 (log)
+                      由防火牆管理人員檢視分析有無異常狀況；記錄檔並應保存一年以上。<br>
+                      本府防火牆主機只能由系統終端機登入，不得以其他任何方式登入，以確保防火牆主機安全。<br>
+                      本府防火牆之安全控管設定應經常檢討，並作必要之調整，以確定發揮應有的安全控管目標。<br>
+                      本府防火牆系統定期作好資料備份，且只能做單機備份，不可採用網路等其他方式備份資料。<br>
+                      本府防火牆系統軟體，經常更新版本，以因應各種網路攻擊。<br> 五、 資料備份作業原則<br>
+                      重要資料的備份，以維持至少三代為原則。<br>
+                      備份資料有適當的實體及環境保護，其安全標準應儘可能與主要作業場所的安全標準相同；主要作業場所對電腦媒體的安控措施，應儘可能適用到備援作業場所。<br>
+                      定期測試備份資料，以確保備份資料之可用性。<br> 六、 資料回復作業原則<br> 資料回復作業時，先檢查資料之一致性與完整性。<br>
+                      網站資料回復，除突發重大事件，主機機房或網路運作無法回復等因素外，資料能於 24
+                      小時內回復正常，並保障備份資料能保持兩日以內之最新完整資料，資料回復後，程式及資料庫均能立刻正常啟用運作。<br>
+                      應定期測試備份資料，以確保備份資料之可用性。<br>
+                      資料回復作業完成後，相關單位人員應持續觀察三日，以確保系統運作正常，新增之資料正確無誤。<br>
+      
+      
+                      七、本網站資安政策的修改由於科技發展的迅速，相關法規訂定未臻完備前，以及未來可能難以預見的環境變遷等
+                      因素，本網站將會視需要修改網站上所提供的資安政策的說明，以落實保障網路安全的立意。當本網站完成資安政策的修改時，我們會立即將其刊登於本網站上，並
+                      以醒目標示提醒您前往點選閱讀。<br> 八、如果您對以上條款有任何疑問或意見，歡迎透過本網站所示之聯絡方式與我們聯絡。<br>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>    關閉</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+          <div id="hiddenMapBox" style="height: 1px;width: 1px;"><iframe id="mapFrame" name="mapFrame" src="/gis/EmbedMapMobile.jsp?mobile=Y&amp;lon=&amp;lat=" width="568" height="100%" scrolling="no" frameborder="no" seamless="seamless"></iframe></div>
+      
+          
+          <script src="/WebResource/vendor/jquery/jquery-1.12.4.min.js"></script>
+          <script src="/WebResource/vendor/jqueryCookie/jquery.cookie.js"></script>
+          <script src="/WebResource/js/mainScript.min.js"></script>
+          <script src="/WebResource/vendor/jqueryTimelinr/jquery.timelinr-0.9.6.js"></script>
+          <script src="/WebResource/vendor/blockui/jquery.blockUI.js"></script>
+          <script src="/WebResource/vendor/jQuery-placeholder/jquery.placeholder.min.js"></script>
+          <script src="/WebResource/vendor/jqueryForm/jquery.form.js"></script>
+          <script src="/WebResource/vendor/bootstrap/js/bootstrap.min.js"></script>
+          <script src="/WebResource/vendor/bootstrapDialog/bootstrap-dialog.min.js"></script>
+          <script src="/WebResource/vendor/bootstrapDatePicker/moment.js"></script>
+          <script src="/WebResource/vendor/bootstrapDatePicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+          <script src="/WebResource/vendor/bootstrapDatePicker/locales/bootstrap-datetimepicker.zh-TW.js" charset="UTF-8"></script>	
+          <script src="/WebResource/js/agency.min.js"></script>
+          <script src="/Resource/SingleSelect.js"></script>
+      
+      
+      
+      
+      
+      
+      
+      <script async="">
+          var option_5 = "";//預約時段
+           var option_4 = "";//發生時段
+          var option_4_1 = "";//發生時段-特定日
+          var option_4_2 = "";//發生事端-特定時段
+          var option_10 = "";//廣告物張貼
+          var option_16 = "";//動物種類
+          var option_9 = "";//查報類型
+          var option_8 = "";//標線／標誌
+          var option_8_1 = "";//標線／標誌 - 新增/移除
+          var option_8_2 = "";//標線／標誌 - 劃設/塗銷
+          var option_8_1_1 = "";//標線／標誌 - 新增/移除 - 項目
+          var option_8_2_1 = "";//標線／標誌 - 劃設/塗銷 - 項目
+          var option_12 = "";//路燈損壞
+          var option_13 = "";//號誌損壞
+          var option_11 = "";//號誌建議項目
+          var option_11_1 = "";
+          var option_11_2 = "";
+          var option_18 = "";//蜂窩高度
+          var option_19 = "";//大型廢棄物種類清運
+          var option_17 = "";//張貼高度
+          var option_23 = "";//館舍類別
+          var option_24 = "";//申請租金類別
+          var option_25 = "";//陳述分類
+          var option_31 = "";//路面不平整
+      
+      
+                  option_5 +="<option value='A'>08:00-10:00</option>"
+                  
+                  option_5 +="<option value='B'>10:01-12:00</option>"
+                  
+                  option_5 +="<option value='C'>12:01-14:00</option>"
+                  
+                  option_5 +="<option value='D'>14:01-16:00</option>"
+                  
+                  option_4 +="<option value='A'>隨時</option>"
+                  
+                  option_4 +="<option value='B'>特定時段</option>"
+                  
+                  option_4_1 +="<option value='0'>每天</option>"
+                  
+                  option_4_1 +="<option value='1'>星期一</option>"
+                  
+                  option_4_1 +="<option value='2'>星期二</option>"
+                  
+                  option_4_1 +="<option value='3'>星期三</option>"
+                  
+                  option_4_1 +="<option value='4'>星期四</option>"
+                  
+                  option_4_1 +="<option value='5'>星期五</option>"
+                  
+                  option_4_1 +="<option value='6'>星期六</option>"
+                  
+                  option_4_1 +="<option value='7'>星期天</option>"
+                  
+                  option_4_2 +="<option value='0'>0</option>"
+                  
+                  option_4_2 +="<option value='1'>1</option>"
+                  
+                  option_4_2 +="<option value='2'>2</option>"
+                  
+                  option_4_2 +="<option value='3'>3</option>"
+                  
+                  option_4_2 +="<option value='4'>4</option>"
+                  
+                  option_4_2 +="<option value='5'>5</option>"
+                  
+                  option_4_2 +="<option value='6'>6</option>"
+                  
+                  option_4_2 +="<option value='7'>7</option>"
+                  
+                  option_4_2 +="<option value='8'>8</option>"
+                  
+                  option_4_2 +="<option value='9'>9</option>"
+                  
+                  option_4_2 +="<option value='10'>10</option>"
+                  
+                  option_4_2 +="<option value='11'>11</option>"
+                  
+                  option_4_2 +="<option value='12'>12</option>"
+                  
+                  option_4_2 +="<option value='13'>13</option>"
+                  
+                  option_4_2 +="<option value='14'>14</option>"
+                  
+                  option_4_2 +="<option value='15'>15</option>"
+                  
+                  option_4_2 +="<option value='16'>16</option>"
+                  
+                  option_4_2 +="<option value='17'>17</option>"
+                  
+                  option_4_2 +="<option value='18'>18</option>"
+                  
+                  option_4_2 +="<option value='19'>19</option>"
+                  
+                  option_4_2 +="<option value='20'>20</option>"
+                  
+                  option_4_2 +="<option value='21'>21</option>"
+                  
+                  option_4_2 +="<option value='22'>22</option>"
+                  
+                  option_4_2 +="<option value='23'>23</option>"
+                  
+                  option_10 +="<option value='A'>電線桿</option>"
+                  
+                  option_10 +="<option value='B'>交通號誌桿</option>"
+                  
+                  option_10 +="<option value='C'>電箱</option>"
+                  
+                  option_10 +="<option value='Z'>其他</option>"
+                  
+                  option_16 +="<option value='A'>犬、貓</option>"
+                  
+                  option_16 +="<option value='B'>豬</option>"
+                  
+                  option_16 +="<option value='C'>牛、羊、家禽或寵物</option>"
+                  
+                  option_16 +="<option value='D'>野生動物</option>"
+                  
+                  option_9 +="<option value='A'>垃圾包</option>"
+                  
+                  option_9 +="<option value='B'>廢棄傢俱</option>"
+                  
+                  option_9 +="<option value='C'>空地髒亂</option>"
+                  
+                  option_9 +="<option value='D'>犬、貓屍體</option>"
+                  
+                  option_9 +="<option value='Z'>其他</option>"
+                  
+                  option_8 +="<option value='B'>標線</option>"
+                  
+                  option_8 +="<option value='A'>標誌（含反射鏡）</option>"
+                  
+                      option_8_1 +="<option value='A_A'>新增</option>"
+                      
+                      option_8_1 +="<option value='A_B'>移除</option>"
+                      
+                      option_8_2 +="<option value='B_A'>劃設</option>"
+                      
+                      option_8_2 +="<option value='B_B'>塗銷</option>"
+                      
+                      option_8_1_1 +="<option value='A_A'>禁止停車</option>"
+                      
+                      option_8_1_1 +="<option value='A_B'>禁止左轉</option>"
+                      
+                      option_8_1_1 +="<option value='A_C'>兩段式左轉</option>"
+                      
+                      option_8_1_1 +="<option value='A_D'>反射鏡</option>"
+                      
+                      option_8_1_1 +="<option value='A_E'>禁行大貨車</option>"
+                      
+                      option_8_1_1 +="<option value='A_F'>公車站牌</option>"
+                      
+                      option_8_1_1 +="<option value='A_Z'>其他</option>"
+                      
+                      option_8_2_1 +="<option value='B_A'>紅線</option>"
+                      
+                      option_8_2_1 +="<option value='B_B'>黃線</option>"
+                      
+                      option_8_2_1 +="<option value='B_C'>白線</option>"
+                      
+                      option_8_2_1 +="<option value='B_D'>黃網線</option>"
+                      
+                      option_8_2_1 +="<option value='B_E'>機車優先或專用道</option>"
+                      
+                      option_8_2_1 +="<option value='B_F'>公車格</option>"
+                      
+                      option_8_2_1 +="<option value='B_G'>自行車道</option>"
+                      
+                      option_8_2_1 +="<option value='B_Z'>其他</option>"
+                      
+                  option_12 +="<option value='A'>路燈不亮</option>"
+                  
+                  option_12 +="<option value='B'>路燈恆亮</option>"
+                  
+                  option_12 +="<option value='C'>燈具損壞</option>"
+                  
+                  option_12 +="<option value='D'>燈桿傾斜</option>"
+                  
+                  option_12 +="<option value='E'>漏電</option>"
+                  
+                  option_12 +="<option value='Z'>其他</option>"
+                  
+                  option_13 +="<option value='A'>全部不亮</option>"
+                  
+                  option_13 +="<option value='B'>燈泡不亮</option>"
+                  
+                  option_13 +="<option value='C'>跳閃燈没有三色運作</option>"
+                  
+                  option_13 +="<option value='D'>燈號不變燈</option>"
+                  
+                  option_13 +="<option value='E'>倒數計時故障</option>"
+                  
+                  option_13 +="<option value='F'>控制器損壞</option>"
+                  
+                  option_13 +="<option value='G'>燈箱損壞</option>"
+                  
+                  option_13 +="<option value='H'>燈桿傾斜(倒)</option>"
+                  
+                  option_13 +="<option value='I'>燈線垂落</option>"
+                  
+                  option_13 +="<option value='Z'>其他</option>"
+                  
+                  option_11 +="<option value='A'>增設號誌</option>"
+                  
+                  option_11 +="<option value='B'>調整秒數</option>"
+                  
+                      option_11_1 +="<option value='A_A'>三色號誌</option>"
+                      
+                      option_11_1 +="<option value='A_B'>閃光號誌</option>"
+                      
+                      option_11_1 +="<option value='A_C'>左轉燈號誌</option>"
+                      
+                      option_11_1 +="<option value='A_D'>右轉燈號誌</option>"
+                      
+                      option_11_1 +="<option value='A_Z'>其他</option>"
+                      
+                      option_11_2 +="<option value='B_A'>前後路口號誌不連鎖</option>"
+                      
+                      option_11_2 +="<option value='B_B'>紅燈秒數調整</option>"
+                      
+                      option_11_2 +="<option value='B_C'>綠燈秒數調整</option>"
+                      
+                      option_11_2 +="<option value='B_D'>黃燈秒數調整</option>"
+                      
+                      option_11_2 +="<option value='B_Z'>其他</option>"
+                      
+                      option_18 +='<label class="radio-inline"><input type="radio" name="beehiveHight" value="A" checked="checked">未達4層樓(10公尺)</label>'
+                      
+                      option_18 +='<label class="radio-inline"><input type="radio" name="beehiveHight" value="B">4層樓(10公尺)以上</label>'
+                      
+                  option_19 +='<div class="checkbox col-lg-3 col-md-3 col-sm-3 col-xs-3">   '
+                             + '  	<label><input type="checkbox" name="removeItemType" value="A">沙發</label>'
+                             + '  </div>'
+                  
+                  option_19 +='<div class="checkbox col-lg-3 col-md-3 col-sm-3 col-xs-3">   '
+                             + '  	<label><input type="checkbox" name="removeItemType" value="B">桌子</label>'
+                             + '  </div>'
+                  
+                  option_19 +='<div class="checkbox col-lg-3 col-md-3 col-sm-3 col-xs-3">   '
+                             + '  	<label><input type="checkbox" name="removeItemType" value="C">椅子</label>'
+                             + '  </div>'
+                  
+                  option_19 +='<div class="checkbox col-lg-3 col-md-3 col-sm-3 col-xs-3">   '
+                             + '  	<label><input type="checkbox" name="removeItemType" value="D">樹枝</label>'
+                             + '  </div>'
+                  
+                  option_19 +='<div class="checkbox col-lg-3 col-md-3 col-sm-3 col-xs-3">   '
+                             + '  	<label><input type="checkbox" name="removeItemType" value="E">床具</label>'
+                             + '  </div>'
+                  
+                  option_19 +='<div class="checkbox col-lg-3 col-md-3 col-sm-3 col-xs-3">   '
+                             + '  	<label><input type="checkbox" name="removeItemType" value="F">櫃子</label>'
+                             + '  </div>'
+                  
+                  option_19 +='<div class="checkbox col-lg-3 col-md-3 col-sm-3 col-xs-3">   '
+                             + '  	<label><input type="checkbox" name="removeItemType" value="Z">其他</label>'
+                             + '  </div>'
+                  
+                      option_17 +='<label class="radio-inline"><input type="radio" name="stickHight" value="A" checked="checked">未達2公尺</label>'
+                      
+                      option_17 +='<label class="radio-inline"><input type="radio" name="stickHight" value="B" >2公尺以上</label>'
+                      
+                  option_23 +="<option value='A'>婦女館</option>"
+                  
+                  option_23 +="<option value='B'>婦幼館</option>"
+                  
+                  option_23 +="<option value='C'>親子館</option>"
+                  
+                  option_23 +="<option value='D'>公設民營托嬰中心</option>"
+                  
+                  option_24 +="<option value='A'>住宅租金補貼</option>"
+                  
+                  option_24 +="<option value='B'>身心障礙者租金補貼</option>"
+                  
+                  option_24 +="<option value='C'>原住民族租金補貼</option>"
+                  
+                  option_25 +="<option value='A'>車型、車號不符</option>"
+                  
+                  option_25 +="<option value='B'>車費已繳納仍遭舉發</option>"
+                  
+                  option_25 +="<option value='C'>ETC及停車費未繳納(含未收繳費單)</option>"
+                  
+                  option_25 +="<option value='D'>未收紅單、照片</option>"
+                  
+                  option_25 +="<option value='E'>車輛報廢後違規</option>"
+                  
+                  option_25 +="<option value='F'>違規事實舉發有誤</option>"
+                  
+                  option_25 +="<option value='G'>前(後)車主違規</option>"
+                  
+                  option_25 +="<option value='H'>已繳違規罰鍰未予銷案</option>"
+                  
+                  option_25 +="<option value='I'>車輛失竊期間違規</option>"
+                  
+                  option_25 +="<option value='J'>違規屬實，惟另有特殊原因</option>"
+                  
+                  option_25 +="<option value='K'>酒駕</option>"
+                  
+                  option_25 +="<option value='Z'>其他</option>"
+                  
+                  option_31 +="<option value='A'>坑洞</option>"
+                  
+                  option_31 +="<option value='B'>孔蓋</option>"
+                  
+                  option_31 +="<option value='C'>其他</option>"
+                  
+      </script>
+      
+      <script>
+      
+          //兼容IE10以下的Placeholder
+          $('input, textarea').placeholder();
+          
+          var channelValue;
+          var showNav = "";
+          var getAllOptions = "";
+          var otherChannel = "";
+      
+          if(""){
+              channelValue = "";
+              $('#channel').val(channelValue);
+          }else{
+              channelValue = $("#channel").val();
+          }
+      
+          var cateId="MC01";
+          var subCateId="SC001";
+          
+          validateChannel()
+      
+      
+      
+          $(document).ready(function(){
+      
+              if(isLowerIE(8)){
+                  $("#blockMsg").show();
+                  $("#caseContainer").hide();
+                  $("#timeline").hide();
+                  return;
+              }
+                  
+              document.getElementById('field_1').style.display = "none"; //身分證字號
+              getMainCate();
+              loadCateDescription();
+              layoutDynamicFormSet(subCateId);
+      
+      
+              //打開案件地圖定位
+              $("#mapModal").on('shown.bs.modal', function () {
+                  var $mapRef = $("#mapFrame");
+                  $("#map-block").append($mapRef);
+      
+                  $("#map-block").block({message:'<i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i><span class="sr-only">Loading...</span>     定位中請稍候...'})
+      
+      
+                  var clientBlockWidth = $("#map-block").width();
+                      // $("#map-block").html('<iframe id="mapFrame" name="mapFrame" src="/gis/EmbedMapMobile.jsp?mobile=Y&lon=&lat=" width="200" height="100%" scrolling="no" frameborder="no" seamless="seamless" ></iframe>');
+      
+                      
+                      setTimeout(function(){
+                          $("#map-block").unblock();
+                          searchOnMap(false);
+                          
+                      },5000);
+                  
+                  $("#mapFrame").attr("width",clientBlockWidth);
+                  
+              });
+      
+              //關閉案件地圖定位
+              $("#mapModal").on('hide.bs.modal',function(){
+                  
+                  var $mapRef = $("#mapFrame");
+                  $mapRef.attr("src", "/gis/EmbedMapMobile.jsp?mobile=Y&lon=&lat=");
+      
+                  $("#hiddenMapBox").html($mapRef);
+              })
+      
+          })
+      
+          function loadCateDescription(){
+              $.ajax({
+                  url: '/servlet/FormAjax', //com.esound.maintain.MaintainCtrl
+                  type: 'post',
+                  data:{
+                      func: "getCategoryDetail",
+                      channel: channelValue, 
+                      mainCateId: cateId,
+                      showAll: true
+                  },
+                  dataType: 'json',
+                  success:function(data)
+                  {
+                      if(data.rows){
+                          for(var i=0; i<data.rows.length; i++)
+                          {
+                              if(data.rows[i].cateId == subCateId && data.rows[i].remark.length > 0){
+                                  
+                                  $("#cateDescRect").show();
+                                  $("#cateDescription").html(data.rows[i].remark);	
+                              
+                              }
+                          }
+                      }
+                  },
+                  error:function(){
+      
+                  }
+              });
+          }
+      
+          function validateChannel(){
+              $.ajax({
+                  url:"/interface/Petition",
+                  type:"POST",
+                  data:{
+                      func:"comfirmChannelAndSid",
+                      channel:channelValue,
+                      sc_Id:$("#cateId").val()
+                  },
+                  dataType:"json",
+                  success:function(data){
+                      if(!data.result){
+                          
+                          BootstrapDialog.show({
+                              title: '訊息',
+                              message: '不正確的錄案管道或陳情類別，請從正式的官網進入建議案件。',
+                              onhidden:function(){
+                                  location.href = "/main/PageCtrl?p=p_1";
+                              },
+                              buttons: [{
+                                  label: '確認',
+                                  cssClass: 'btn btn-primary',
+                                  action: function(dialog) {
+                                      dialog.close();
+                                  }
+                              }]
+                          });
+                      }else{
+                          
+                      }
+      
+                  },
+                  error:function(){			
+                      
+                  }
+      
+              })						
+          }
+      
+      
+      </script>
+      <script src="/WebResource/js/petitionInfo.js?v=1.9"></script>
+      
+      
+      
