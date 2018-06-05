@@ -1,1 +1,2 @@
-A small copy of  [桃園市政信箱](https://taotalk.tycg.gov.tw/#petition) for the use of HPE hackathon.
+The structure of github pages is different from my server so all frontend typesetting are missing @@
+But basically I made a copy of [桃園市政信箱](https://taotalk.tycg.gov.tw/#petition) including all forms. 
